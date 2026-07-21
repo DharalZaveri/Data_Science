@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NanoBee</title>
+  </head>
+  <body>
+    <script>
+      window.addEventListener('error', function(e) {
+        var msg = String(e.message || '');
+        if (!msg || msg.toLowerCase().indexOf('script error') !== -1 || msg.toLowerCase().indexOf('websocket') !== -1 || msg.toLowerCase().indexOf('vite') !== -1) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      }, true);
+
+      window.addEventListener('unhandledrejection', function(e) {
+        var msg = e.reason ? (e.reason.message || String(e.reason)) : '';
+        if (msg.toLowerCase().indexOf('websocket') !== -1 || msg.toLowerCase().indexOf('vite') !== -1) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      }, true);
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
