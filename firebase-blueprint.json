@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile with credits.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "available_credits": { "type": "number", "description": "Free images left or purchased images" }
+      },
+      "required": ["email", "available_credits"]
+    },
+    "Payment": {
+      "title": "Razorpay Payment",
+      "description": "Ledger of successful transactions.",
+      "type": "object",
+      "properties": {
+        "user_id": { "type": "string" },
+        "amount": { "type": "number" },
+        "status": { "type": "string" },
+        "created_at": { "type": "number" }
+      },
+      "required": ["user_id", "amount", "status", "created_at"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profile"
+    },
+    "/payments/{orderId}": {
+      "schema": { "$ref": "#/entities/Payment" },
+      "description": "Payments ledger"
+    }
+  }
+}

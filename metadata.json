@@ -1,0 +1,6 @@
+{
+  "name": "NanoBee",
+  "description": "Standalone professional garment catalog generator with ultra-realistic AI fabric draping and high-fidelity studio visualization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["AI Image Generation", "3D Visualization", "PDF/JPEG Catalog Export", "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
